@@ -20,14 +20,19 @@ namespace app.Controllers
             _context = context;
         }
 
-        // GET: api/Cliente
+        /// <summary>
+        /// Retorna todos os clientes.
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
         {
             return await _context.Clientes.ToListAsync();
         }
 
-        // GET: api/Cliente/5
+        /// <summary>
+        /// Retorna um cliente
+        /// </summary>
+        /// <param name="id"></param>  
         [HttpGet("{id}")]
         public async Task<ActionResult<Cliente>> GetCliente(int id)
         {
@@ -41,7 +46,11 @@ namespace app.Controllers
             return cliente;
         }
 
-        // PUT: api/Cliente/5
+        /// <summary>
+        /// Altera um cliente
+        /// </summary>
+        /// <param name="id"></param>  
+        /// <param name="cliente"></param>  
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCliente(int id, Cliente cliente)
         {
@@ -71,7 +80,10 @@ namespace app.Controllers
             return NoContent();
         }
 
-        // POST: api/Cliente
+        /// <summary>
+        /// Inclui novo cliente
+        /// </summary>
+        /// <param name="cliente"></param>  
         [HttpPost]
         public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
         {
@@ -81,7 +93,10 @@ namespace app.Controllers
             return CreatedAtAction("GetCliente", new { id = cliente.Id }, cliente);
         }
 
-        // DELETE: api/Cliente/5
+        /// <summary>
+        /// Remove um cliente
+        /// </summary>
+        /// <param name="id"></param>  
         [HttpDelete("{id}")]
         public async Task<ActionResult<Cliente>> DeleteCliente(int id)
         {
