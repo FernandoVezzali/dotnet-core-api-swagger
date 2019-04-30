@@ -49,6 +49,10 @@ namespace app
                         Url = "https://github.com/FernandoVezzali/dotnet-core-api-swagger/blob/master/LICENSE"
                     }
                 });
+
+                var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
+                options.IncludeXmlComments(xmlPath);                
             });
         }
 
